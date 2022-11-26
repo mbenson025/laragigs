@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//takes in content - response takes in status/headers
+Route::get('/test-route', function() {
+    return response('<h1>test route</h1>', 200)
+    ->header('Content-Type', 'text/plain')
+    ->header('key', 'value');
+});
