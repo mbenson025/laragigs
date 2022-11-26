@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +23,18 @@ Route::get('/test-route', function() {
     return response('<h1>test route</h1>', 200)
     ->header('Content-Type', 'text/plain')
     ->header('key', 'value');
+});
+
+//wildcard {} - posts/12 outputs 'Post 12'
+Route::get('/posts/{id}', function($id){
+    //die and dump
+    // dd($id);
+    //die, dump and debug
+    // ddd($id);
+    return response('Post ' . $id);
+}) -> where('id', '[0-9]+');
+
+Route::get('/search', function(Request $request) {
+    return $request -> name . ' ' . $request->city;
+
 });
