@@ -1,3 +1,8 @@
+@extends('layout')
+
+@section('content')
+
+
 
 {{-- non-blade format --}}
 {{-- <h1><?php echo $heading; ?></h1>
@@ -16,7 +21,6 @@
     <p>No listings found</p>
 @endif --}}
 
-
 @unless(count($listings) == 0)
 
 @foreach($listings as $listing)
@@ -31,3 +35,6 @@
 @else 
     <p>No listings found</p>
 @endunless
+
+
+@endsection
