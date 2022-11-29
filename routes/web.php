@@ -6,12 +6,6 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
 
 
-// all listings
-Route::get('/', [ListingController::class, 'index']);
-
-// single listing
-Route::get('/listings/{listing}', [ListingController::class, 'show']);
-
 // Common Resource Routes:
 //
 // index - Show all listings
@@ -21,3 +15,12 @@ Route::get('/listings/{listing}', [ListingController::class, 'show']);
 // edit - Show form to edit listing
 // update - Update listing
 // destroy - Delete listing
+
+
+// all listings
+Route::get('/', [ListingController::class, 'index']);
+
+// single listing
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+
