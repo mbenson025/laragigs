@@ -17,13 +17,20 @@ use App\Models\Listing;
 // destroy - Delete listing
 
 
-// all listings
+//all listings
 Route::get('/', [ListingController::class, 'index']);
 
 //show create form
 Route::get('/listings/create', [ListingController::class, 'create']);
 
-// single listing
+//store listing data
+Route::post('/listings', [ListingController::class, 'store']);
+
+
+
+
+
+//single listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 
