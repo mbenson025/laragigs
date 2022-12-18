@@ -110,7 +110,7 @@
                             @enderror
                         </div>
 
-                        {{-- <div class="mb-6">
+                        <div class="mb-6">
                             <label for="logo" class="inline-block text-lg mb-2">
                                 Company Logo
                             </label>
@@ -119,7 +119,11 @@
                                 class="border border-gray-200 rounded p-2 w-full"
                                 name="logo"
                             />
-                        </div> --}}
+
+                            @error('logo')
+                                <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                            @enderror
+                        </div>
 
                         <div class="mb-6">
                             <label
