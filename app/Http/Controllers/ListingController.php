@@ -85,6 +85,6 @@ class ListingController extends Controller
         public function destroy(Listing $listing) {
             $listing->delete();
             // with flash message
-            return redirect('/')->with('message', 'Listing deleted!');
+            return redirect('/')->with('message', 'Listing deleted');
         }
 }
