@@ -22,7 +22,7 @@ use App\Http\Controllers\ListingController;
 Route::get('/', [ListingController::class, 'index']);
 
 //show create form
-Route::get('/listings/create', [ListingController::class, 'create']);
+Route::get('/listings/create', [ListingController::class, 'create'])->middleware('auth');
 
 //store listing data
 Route::post('/listings', [ListingController::class, 'store']);
