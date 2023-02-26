@@ -15,7 +15,13 @@ return new class extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
+
+            //create a relationship between the listings and users
+            //cascade allows multiple listings by a user to be deleted if that user is deleted
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+
             $table->string('title');
+
             // logo saved as a string - path to the file
             // nullable allows it to be left empty
             $table->string('logo')->nullable();

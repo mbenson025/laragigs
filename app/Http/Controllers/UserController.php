@@ -9,12 +9,14 @@ use Illuminate\Foundation\Auth\User;
 class UserController extends Controller
 {
     //show register/create form
-    public function create() {
+    public function create()
+    {
         return view('users.register');
     }
 
     //store new user
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $formFields = $request->validate([
             'name' => ['required', 'min:3'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
@@ -34,7 +36,8 @@ class UserController extends Controller
     }
 
     //logout user
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         //remove the authentication information from the user's session
         auth()->logout();
 
@@ -48,18 +51,20 @@ class UserController extends Controller
     }
 
     //show login form
-    public function login() {
+    public function login()
+    {
         return view('users.login');
     }
 
     //authenticate user
-    public function authenticate(Request $request) {
+    public function authenticate(Request $request)
+    {
         $formFields = $request->validate([
             'email' => ['required', 'email'],
             'password' => 'required'
         ]);
 
-        if(auth()->attempt($formFields)) {
+        if (auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
             return redirect('/')->with('message', 'You are now logged in!');
