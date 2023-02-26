@@ -25,6 +25,7 @@ return new class extends Migration
             // logo saved as a string - path to the file
             // nullable allows it to be left empty
             $table->string('logo')->nullable();
+
             $table->string('tags');
             $table->string('company');
             $table->string('location');
