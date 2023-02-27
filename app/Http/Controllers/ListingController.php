@@ -50,6 +50,8 @@ class ListingController extends Controller
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
+        $formFields['user_id'] = auth()->id();
+
         Listing::create($formFields);
 
         //create flash message
@@ -82,6 +84,7 @@ class ListingController extends Controller
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
+
         $listing->update($formFields);
 
         return back()->with('message', 'Listing updated successfully');
@@ -93,5 +96,11 @@ class ListingController extends Controller
         $listing->delete();
         // with flash message
         return redirect('/')->with('message', 'Listing deleted');
+    }
+
+    // manage listings
+    public function manage()
+    {
+        return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
     }
 }
